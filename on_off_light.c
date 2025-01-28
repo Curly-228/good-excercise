@@ -8,7 +8,7 @@ void get_click(int n,int click[])
     int i;
     for(i = 0; i < 6;i++)
     {
-        printf("i = %d\n", i); // 调试输出
+        
         click[5 - i] = n % 2;
         n /= 2;
     }
@@ -20,15 +20,15 @@ void flip_light(int *a,int b)
 }
 int main()
 {
-    int i, j, n, flag, count ;
+    int i, j, n, flag, count,count1;
     scanf("%d", &count);
+    count1 = 0;
+    while(count--)
+    {
     for (i = 0; i < 5;i++)
         for (j = 0; j < 6;j++)
-            scanf("%d", &room[i][j]);
-            for (i = 0; i < 5;i++)
-        for (j = 0; j < 6;j++)
-            printf("%3d", room[i][j]);
-    for (n = 0; n < 64;i++)
+            scanf("%d", &room[i][j]); 
+    for (n = 0; n < 64;n++)
     {
         flag = 0;
         int click[6] = {0};  // 所有元素都是0 click[6]={1,2,3};->{1,2,3,0,0,0}
@@ -59,8 +59,8 @@ int main()
         }
         
         if(flag==0){
-            
-            printf("PUZZLE #%d", count);
+            count1++;
+            printf("PUZZLE #%d\n", count1);
             for (i = 0; i < 5;i++)
             {
                 for (j = 0; j < 6;j++)
@@ -68,6 +68,7 @@ int main()
                 printf("\n");
             }
         }
+    }
     }
     return 0;
 }
